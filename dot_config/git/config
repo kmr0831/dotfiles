@@ -1,0 +1,9 @@
+[user]
+	name = Ginjiro Kiura
+	email = ginjirokimura0831@gmail.com
+[core]
+	editor = code --wait
+[color]
+	ui = auto
+[init]
+	defaultBranch = main
