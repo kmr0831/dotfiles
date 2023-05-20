@@ -1,0 +1,15 @@
+Host github github.com
+  HostName github.com
+  User git
+  Port  22
+  IdentityFile ~/.ssh/github/id_ed25519
+  TCPKeepAlive yes
+  IdentitiesOnly yes
+
+Host github-pri github-pri.com
+  HostName github.com
+  User git
+  Port 22
+  IdentityFile ~/.ssh/github/id_ed25519_private
+  TCPKeepAlive yes
+  IdentitiesOnly yes
