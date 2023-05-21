@@ -15,13 +15,12 @@ setopt hist_ignore_space
 setopt hist_reduce_blanks
 # コマンドのスペルを訂正する
 setopt correct
+# プロンプトを表示するたびに件数展開
+setopt prompt_subst
 
 # コマンド補完
 autoload -Uz compinit
 compinit
-
-# 毎回読み込む
-autoload -Uz vcs_info
 
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
