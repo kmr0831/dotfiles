@@ -14,10 +14,6 @@ bitwardenにログイン
 ```
 bw login --apikey
 ```
-終了したらログアウトを忘れずに
-```
-bw logout
-```
 chezmoiを実行
 ```
 chezmoi init --apply https://github.com/kmr0831/dotfiles.git
