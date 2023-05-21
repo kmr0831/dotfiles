@@ -14,7 +14,24 @@ bitwardenにログイン
 ```
 bw login --apikey
 ```
+終了したらログアウトを忘れずに
+```
+bw logout
+```
 chezmoiを実行
 ```
 chezmoi init --apply https://github.com/kmr0831/dotfiles.git
+```
+終了したらbitwardenのログアウトを忘れずに
+```
+bw logout
+```
+
+`chezmoi -v apply`するとき必ずbitwardenのマスターパスワードを聞かれる
+sessionを環境変数に入れると解消するかも
+```
+bw unlock
+```
+```
+export BW_SESSION="unlockで取得したセッションキー"
 ```
