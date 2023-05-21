@@ -60,5 +60,5 @@ function prompt-git-branch {
     # ブランチ名を色付きで表示する
     echo "${branch_status}($branch_name)%f"
 }
-GIT_PROMPT=`prompt-git-branch`
-PROMPT="%F{cyan}%~%f ${GIT_PROMPT} %# "
+#GIT_PROMPT=`prompt-git-branch`
+PROMPT="%F{cyan}%~%f "'`prompt-git-branch`'" %# " 
