@@ -42,5 +42,12 @@ bw unlock
 export BW_SESSION="unlockで取得したセッションキー"
 ```
 
+httpsでgithubにpushしようとするときはアクセストークンが必要。今のところclassicトークンでよし。[Access Token](https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#personal-access-token-classic-の作成)
+```
+git push -u origin main
+```
+Username: kmr0831
+Password: アクセストークン
+
 6. その他
 google-japanese-imeの設定
