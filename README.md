@@ -28,6 +28,11 @@ bw sync
 ```
 chezmoi init --apply https://github.com/kmr0831/dotfiles.git
 ```
+6. Brewfileからソフトをインストール
+```
+brew bundle --file '~/Brewfile'
+```
+
 終了したらbitwardenのログアウトを忘れずに
 ```
 bw logout
@@ -47,7 +52,7 @@ httpsでgithubにpushしようとするときはアクセストークンが必�
 git push -u origin main
 ```
 Username: kmr0831
-Password: アクセストークン
+Password: アクセストークン(biwtardenのgithubのノートにアクセストークンをメモしてある)
 
 6. その他
 google-japanese-imeの設定
