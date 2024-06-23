@@ -1,19 +1,19 @@
 # 移行前
 Brewfileを最新にする
 # 以降後
-1. Xcodeをインストール
+1. Xcode をインストール
 ```
 xcode-select --install
 ```
-2. homebrewをインストール
+2. homebrew をインストール
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
-3. chezmoiとbitwarden-cliインストール
+3. chezmoi と bitwarden-cli インストール
 ```
 brew install chezmoi bitwarden-cli
 ```
-4. bitwardenにログイン
+4. bitwarden にログイン
 [API key](https://bitwarden.com/ja-jp/help/personal-api-key/)
 ```
 bw login --apikey
@@ -28,16 +28,16 @@ export BW_SESSION="xxxxx"
 ```
 bw sync
 ```
-5. chezmoiを実行
+5. chezmoi を実行
 ```
 chezmoi init --apply https://github.com/kmr0831/dotfiles.git
 ```
-6. Brewfileからソフトをインストール
+6. Brewfile からソフトをインストール
 ```
 brew bundle --file '~/Brewfile'
 ```
 
-終了したらbitwardenのログアウトを忘れずに
+終了したら bitwarden のログアウトを忘れずに
 ```
 bw logout
 ```
