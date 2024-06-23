@@ -14,12 +14,16 @@ xcode-select --install
 brew install chezmoi bitwarden-cli
 ```
 4. bitwardenにログイン
-[API key](https://bitwarden.com/ja-JP/help/personal-api-key/)
+[API key](https://bitwarden.com/ja-jp/help/personal-api-key/)
 ```
 bw login --apikey
 ```
 ```
 bw unlock
+```
+```
+// bw unlock すると `BW_SESSION` が発行されターミナルに表示されるので環境変数に入れる
+export BW_SESSION="xxxxx"
 ```
 ```
 bw sync
@@ -36,15 +40,6 @@ brew bundle --file '~/Brewfile'
 終了したらbitwardenのログアウトを忘れずに
 ```
 bw logout
-```
-
-`chezmoi -v apply`するとき必ずbitwardenのマスターパスワードを聞かれる
-sessionを環境変数に入れると解消するかも
-```
-bw unlock
-```
-```
-export BW_SESSION="unlockで取得したセッションキー"
 ```
 
 httpsでgithubにpushしようとするときはアクセストークンが必要。今のところclassicトークンでよし。[Access Token](https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#personal-access-token-classic-の作成)
