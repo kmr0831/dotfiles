@@ -1,5 +1,13 @@
 # 移行前
-Brewfileを最新にする
+1. Brewfileを最新にする
+```
+// brew でインストールしたものを確認
+brew bundle list
+```
+```
+// 新しく追加したものがあれば Brewfile を更新
+chezmoi edit Brewfile
+```
 # 以降後
 1. Xcode をインストール
 ```
@@ -32,6 +40,13 @@ bw sync
 ```
 chezmoi init --apply https://github.com/kmr0831/dotfiles.git
 ```
+```
+// chezmoi init で https 接続になっているので ssh 接続に変更する
+git remote -v
+git remote set-url origin git@github.com:kmr0831/dotfiles.git
+ssh -T git@github.com
+git remote -v
+```
 6. Brewfile からソフトをインストール
 ```
 brew bundle --file '~/Brewfile'
@@ -41,13 +56,5 @@ brew bundle --file '~/Brewfile'
 ```
 bw logout
 ```
-
-httpsでgithubにpushしようとするときはアクセストークンが必要。今のところclassicトークンでよし。[Access Token](https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#personal-access-token-classic-の作成)
-```
-git push -u origin main
-```
-Username: kmr0831
-Password: アクセストークン(biwtardenのgithubのノートにアクセストークンをメモしてある)
-
 6. その他
 google-japanese-imeの設定
