@@ -1,13 +1,46 @@
 # 移行前
-1. Brewfileを最新にする
+1. Brewfile 等を最新にする
+
+<details>
+
+<summary>chezmoi のコマンド例</summary>
+
+```diff
+~  % chezmoi cd
+~/.local/share/chezmoi (main) % code .
+
+***VS Code でファイルを直接編集する & commit***
+
+// diff が確認できる
+~/.local/share/chezmoi (main) % chezmoi diff
+? Master password: [hidden]
+diff --git a/Brewfile b/Brewfile
+index 35cad64a7b8de69a95dffe4c66ac53e85a51217c..2488f4f4632585f05963c14cbf4a7136ddfccc30 100644
+--- a/Brewfile
++++ b/Brewfile
+@@ -5,6 +5,8 @@ brew "bitwarden-cli"
+ brew "chezmoi"
+ brew "git"
+ brew "colima"
++brew "docker"
++brew "docker-compose"
+ brew "jq"
+ brew "yq"
+ brew "ghq"
+
+// local にも反映する
+~/.local/share/chezmoi +(main) % chezmoi apply
+
+~/.local/share/chezmoi (main) % git push
+```
+
 ```
 // brew でインストールしたものを確認
 brew bundle list
 ```
-```
-// 新しく追加したものがあれば Brewfile を更新
-chezmoi edit Brewfile
-```
+
+</details>
+
 # 以降後
 1. Xcode をインストール
 ```
