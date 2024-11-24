@@ -4,6 +4,7 @@ HISTSIZE=100000
 SAVEHIST=100000
 
 export PATH="/usr/local/sbin:$PATH"
+eval "$(~/.local/bin/mise activate zsh)"
 
 # 同時に起動した zsh の間でヒストリを共有する
 setopt share_history
