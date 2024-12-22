@@ -1,5 +1,5 @@
 # 移行前
-1. Brewfile 等を最新にする
+### 1. Brewfile 等を最新にする
 
 <details>
 
@@ -42,19 +42,19 @@ brew bundle list
 </details>
 
 # 以降後
-1. Xcode をインストール
+### 1. Xcode をインストール
 ```
 xcode-select --install
 ```
-2. homebrew をインストール
+### 2. homebrew をインストール
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
-3. chezmoi と bitwarden-cli インストール
+### 3. chezmoi と bitwarden-cli インストール
 ```
 brew install chezmoi bitwarden-cli
 ```
-4. bitwarden にログイン
+### 4. bitwarden にログイン
 [API key](https://bitwarden.com/ja-jp/help/personal-api-key/)
 ```
 bw login --apikey
@@ -69,7 +69,7 @@ export BW_SESSION="xxxxx"
 ```
 bw sync
 ```
-5. chezmoi を実行
+### 5. chezmoi を実行
 ```
 chezmoi init --apply https://github.com/kmr0831/dotfiles.git
 ```
@@ -80,7 +80,7 @@ git remote set-url origin git@github.com:kmr0831/dotfiles.git
 ssh -T git@github.com
 git remote -v
 ```
-6. Brewfile からソフトをインストール
+### 6. Brewfile からソフトをインストール
 ```
 brew bundle --file '~/Brewfile'
 ```
@@ -89,7 +89,7 @@ brew bundle --file '~/Brewfile'
 ```
 bw logout
 ```
-7. google-japanese-ime の設定
+### 7. google-japanese-ime の設定
 
 - Mac を再起動 (再起動しないと設定できない)
 - [環境設定] → [キーボード] → [入力ソース]を開く
