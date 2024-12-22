@@ -62,8 +62,8 @@ bw login --apikey
 ```
 bw unlock
 ```
+`bw unlock` すると `BW_SESSION` が発行されターミナルに表示されるので環境変数に入れる
 ```
-// bw unlock すると `BW_SESSION` が発行されターミナルに表示されるので環境変数に入れる
 export BW_SESSION="xxxxx"
 ```
 ```
@@ -73,8 +73,8 @@ bw sync
 ```
 chezmoi init --apply https://github.com/kmr0831/dotfiles.git
 ```
+`chezmoi init` で https 接続になっているので ssh 接続に変更する
 ```
-// chezmoi init で https 接続になっているので ssh 接続に変更する
 git remote -v
 git remote set-url origin git@github.com:kmr0831/dotfiles.git
 ssh -T git@github.com
