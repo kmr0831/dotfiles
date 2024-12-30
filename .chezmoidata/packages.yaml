@@ -1,0 +1,35 @@
+packages:
+  darwin:
+    taps:
+      - "homebrew/bundle"
+      - "homebrew/cask"
+      - "homebrew/core"
+    brews:
+      - "bitwarden-cli"
+      - "chezmoi"
+      - "colima"
+      - "docker"
+      - "docker-compose"
+      - "git"
+      - "ghq"
+      - "jq"
+      - "mise"
+      - "peco"
+      - "ruby-build"
+      - "yq"
+    casks:
+      - "google-chrome"
+      - "google-japanese-ime"
+      - "raycast"
+      - "visual-studio-code"
+      - "warp"
+  vs_code_extensions:
+    - "christian-kohler.path-intellisense"
+    - "dbaeumer.vscode-eslint"
+    - "eamodio.gitlens"
+    - "esbenp.prettier-vscode"
+    - "ms-azuretools.vscode-docker"
+    - "ms-vscode-remote.remote-containers"
+    - "shopify.ruby-lsp"
+    - "usernamehw.errorlens"
+    - "vue.volar"
