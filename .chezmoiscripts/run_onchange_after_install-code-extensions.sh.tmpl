@@ -7,6 +7,6 @@ if ! command -v code &> /dev/null; then
   exit 0
 fi
 
-{{ range .packages.vs_code_extensions }}
+{{ range .packages.vs_code_extensions -}}
   code --force --install-extension {{.}}
 {{ end }}
