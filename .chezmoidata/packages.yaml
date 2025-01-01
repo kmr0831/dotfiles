@@ -2,8 +2,6 @@ packages:
   darwin:
     taps:
       - "homebrew/bundle"
-      - "homebrew/cask"
-      - "homebrew/core"
     brews:
       - "bitwarden-cli"
       - "chezmoi"
