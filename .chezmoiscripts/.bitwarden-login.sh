@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# シェルスクリプト内で export した環境変数は読めない: https://github.com/twpayne/chezmoi/issues/3729
+# 代替案: https://github.com/twpayne/chezmoi/discussions/3202
+
 set -eufo pipefail
 
 if ! command -v bw &> /dev/null; then
