@@ -1,6 +1,8 @@
 [edit]
   command = "code"
   args = ["--wait"]
+[hooks.read-source-state.pre]
+  command = "{{ .chezmoi.sourceDir }}/.install-password-manager.sh"
 # [hooks.apply.pre]
 #   command = "{{ .chezmoi.sourceDir }}/.chezmoiscripts/.bitwarden-login.sh"
 # [hooks.diff.pre]
