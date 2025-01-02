@@ -10,23 +10,10 @@ if ! command -v bw &> /dev/null; then
   exit 0
 fi
 
-BW_STATUS="$(bw status | jq '.status')"
-case $BW_STATUS in
-  "unauthenticated")
-    echo "Not logged in, trying to log in..."
-    export BW_SESSION="$(bw login "${BITWARDEN_EMAIL:-}" --raw)"
-    ;;
-  "locked")
-    echo "Session is locked, unlocking..."
-    export BW_SESSION="$(bw unlock --raw)"
-    ;;
-  *)
-    # セッションが既に存在するか確認
-    if [ -z "${BW_SESSION:-}" ]; then
-      echo "Session undefined, unlocking..."
-      export BW_SESSION="$(bw unlock --raw)"
-    else
-      echo "Session already unlocked"
-    fi
-    ;;
-esac
+if ! bw login --check > /dev/null; then
+  bw login "${BITWARDEN_EMAIL:-}"
+elif [ -z "${BW_SESSION:-}" ]; then
+  bw unlock
+else
+  echo "The BW_SESSION environment variable is already set."
+fi

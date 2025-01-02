@@ -3,7 +3,7 @@
   args = ["--wait"]
 [hooks.read-source-state.pre]
   command = "{{ .chezmoi.sourceDir }}/.chezmoihooks/.install-password-manager.sh"
-# [hooks.apply.pre]
-#   command = "{{ .chezmoi.sourceDir }}/scripts/.bitwarden-login.sh"
-# [hooks.diff.pre]
-#   command = "{{ .chezmoi.sourceDir }}/scripts/.bitwarden-login.sh"
+[hooks.apply.pre]
+  command = "{{ .chezmoi.sourceDir }}/scripts/.bitwarden-login.sh"
+[hooks.diff.pre]
+  command = "{{ .chezmoi.sourceDir }}/scripts/.bitwarden-login.sh"
