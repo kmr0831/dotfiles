@@ -4,8 +4,10 @@ set -eufo pipefail
 
 if command -v bw &> /dev/null; then
   echo "bw is already installed"
-else
-  case "$(uname -s)" in
+  exit 0
+fi
+
+case "$(uname -s)" in
   Darwin)
     if ! command -v brew &> /dev/null; then
       echo "Homebrew is not installed. Installing Homebrew (pre hook)"
@@ -20,5 +22,4 @@ else
     echo "unsupported OS"
     exit 1
     ;;
-  esac
-fi
+esac
