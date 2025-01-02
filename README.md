@@ -42,7 +42,7 @@ index 35cad64a7b8de69a95dffe4c66ac53e85a51217c..2488f4f4632585f05963c14cbf4a7136
 ### 1. 初期セットアップ
 
 ```
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply kmr0831
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --purge-binary --apply kmr0831
 ```
 
 ### 2. chezmoi と bitwarden-cli インストール
