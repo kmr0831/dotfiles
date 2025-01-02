@@ -45,51 +45,11 @@ index 35cad64a7b8de69a95dffe4c66ac53e85a51217c..2488f4f4632585f05963c14cbf4a7136
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --purge-binary --apply kmr0831
 ```
 
-### 2. chezmoi と bitwarden-cli インストール
+オプション
 
-> [!NOTE]
-> TODO: 手順 2 以降は変更する
-
-```
-brew install chezmoi bitwarden-cli
-```
-
-### 3. bitwarden にログイン
-
-[API key](https://bitwarden.com/ja-jp/help/personal-api-key/)
-
-```
-bw login --apikey
-```
-
-```
-bw unlock
-```
-
-`bw unlock` すると `BW_SESSION` が発行されターミナルに表示されるので環境変数に入れる
-
-```
-export BW_SESSION="xxxxx"
-```
-
-```
-bw sync
-```
-
-### 4. chezmoi を実行
-
-```
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply kmr0831
-```
-
-`chezmoi init` で https 接続になっているので ssh 接続に変更する
-
-```
-git remote -v
-git remote set-url origin git@github.com:kmr0831/dotfiles.git
-ssh -T git@github.com
-git remote -v
-```
+| key             | value               |
+| --------------- | ------------------- |
+| BITWARDEN_EMAIL | bitwarden email     |
 
 終了したら bitwarden のログアウトを忘れずに
 
@@ -97,7 +57,7 @@ git remote -v
 bw logout
 ```
 
-### 5. google-japanese-ime の設定
+### 2. google-japanese-ime の設定
 
 - Mac を再起動 (再起動しないと設定できない)
 - 「環境設定」→「キーボード」→「入力ソース」を開く
@@ -107,11 +67,11 @@ bw logout
 - (必要であれば) 辞書のインポート・エクスポート
   - PC で辞書の編集 → 辞書のエクスポート (.txt になる) → .zip に圧縮して Google Drive に保存 → スマホで Google Drive からインポート
 
-### 6. Raycast の設定
+### 3. Raycast の設定
 
 - Raycast の設定ファイルをインポートする。(設定ファイルを自動で読み込んでくれないため、手動でインポート作業が必要)
 
-### 7. Mac 本体の設定
+### 4. Mac 本体の設定
 
 defaults で、設定できない/設定方法がわからなかった項目のカスタマイズを行う
 
