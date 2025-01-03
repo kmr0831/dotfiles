@@ -3,8 +3,8 @@
 set -eufo pipefail
 
 if ! command -v code &> /dev/null; then
-  echo "code is not installed"
-  exit 0
+  echo "code is not installed" >&2
+  exit 1
 fi
 
 {{ range .packages.vs_code_extensions -}}

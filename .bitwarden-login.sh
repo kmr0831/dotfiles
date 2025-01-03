@@ -11,8 +11,8 @@ if [ -n "$BW_SESSION" ]; then
 fi
 
 if ! command -v bw &> /dev/null; then
-  echo "bw is not installed"
-  exit 0
+  echo "bw is not installed" >&2
+  exit 1
 fi
 
 if ! bw login --check > /dev/null; then
