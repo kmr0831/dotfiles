@@ -5,6 +5,11 @@
 
 set -eufo pipefail
 
+if [ -n "$BW_SESSION" ]; then
+  echo "The BW_SESSION environment variable is already set."
+  exit 0
+fi
+
 if ! command -v bw &> /dev/null; then
   echo "bw is not installed"
   exit 0
@@ -14,6 +19,4 @@ if ! bw login --check > /dev/null; then
   bw login "${BITWARDEN_EMAIL:-}"
 elif [ -z "${BW_SESSION:-}" ]; then
   bw unlock
-else
-  echo "The BW_SESSION environment variable is already set."
 fi
