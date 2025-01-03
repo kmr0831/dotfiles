@@ -21,6 +21,9 @@ packages:
       - "raycast"
       - "visual-studio-code"
       - "warp"
+    mise:
+      - "node@lts"
+      - "ruby"
   vs_code_extensions:
     - "christian-kohler.path-intellisense"
     - "dbaeumer.vscode-eslint"
