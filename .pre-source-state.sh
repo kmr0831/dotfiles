@@ -60,6 +60,7 @@ main() {
     bw_unlock
   else
     install_bitwarden
+    bw_unlock
   fi
 }
 
