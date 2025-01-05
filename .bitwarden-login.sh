@@ -5,7 +5,7 @@
 
 set -eufo pipefail
 
-if [ -n "$BW_SESSION" ]; then
+if [ -n "${BW_SESSION:-}" ]; then
   echo "The BW_SESSION environment variable is already set."
   exit 0
 fi

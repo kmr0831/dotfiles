@@ -82,3 +82,8 @@ defaults で、設定できない/設定方法がわからなかった項目の�
 3. メニューバー
     - 「Spotlight」を OFF
 4. ディスプレイの「輝度を自動調節」をオフにする
+
+### chezmoi メモ
+
+- `hooks.apply.pre` → `hooks.read-source-state.pre` → `run_before_` script の順に呼ばれる
+  - `hooks.read-source-state.pre` は chezmoi コマンド (apply, diff, data 等) の実行時に毎回呼ばれる
