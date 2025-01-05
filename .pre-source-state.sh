@@ -2,16 +2,36 @@
 
 set -eufo pipefail
 
-install_homebrew() {
-  command -v brew >/dev/null 2>&1 && return
+has_bw() {
+  command -v bw >/dev/null 2>&1
+}
 
+has_brew() {
+  command -v brew >/dev/null 2>&1
+}
+
+install_bitwarden() {
+  echo "bw is not installed. Installing Bitwarden CLI"
+
+  has_brew || install_homebrew
+  brew install bitwarden-cli
+}
+
+bw_unlock() {
+  if ! bw login --check > /dev/null; then
+    bw login "${BITWARDEN_EMAIL:-}"
+  elif [ -z "${BW_SESSION:-}" ]; then
+    bw unlock
+  fi
+}
+
+install_homebrew() {
   echo "Homebrew is not installed. Installing Homebrew"
 
   case "$(uname -s)" in
   Darwin)
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     # eval "$(/opt/homebrew/bin/brew shellenv)"
-    brew install bitwarden-cli
     ;;
   Linux*)
     sudo apt-get update && \
@@ -22,7 +42,6 @@ install_homebrew() {
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    brew install bitwarden-cli
     ;;
   *)
     echo "unsupported OS"
@@ -32,8 +51,16 @@ install_homebrew() {
 }
 
 main() {
-  command -v bw >/dev/null 2>&1 && exit
-  install_homebrew
+  if [ -n "${BW_SESSION:-}" ]; then
+    echo "The BW_SESSION environment variable is already set."
+    exit 0
+  fi
+
+  if has_bw; then
+    bw_unlock
+  else
+    install_bitwarden
+  fi
 }
 
 main

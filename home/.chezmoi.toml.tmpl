@@ -2,8 +2,4 @@
   command = "code"
   args = ["--wait"]
 [hooks.read-source-state.pre]
-  command = "{{ .chezmoi.workingTree }}/.install-password-manager.sh"
-[hooks.apply.pre]
-  command = "{{ .chezmoi.workingTree }}/.bitwarden-login.sh"
-[hooks.diff.pre]
-  command = "{{ .chezmoi.workingTree }}/.bitwarden-login.sh"
+  command = "{{ .chezmoi.workingTree }}/.pre-source-state.sh"
