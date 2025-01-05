@@ -87,3 +87,7 @@ defaults で、設定できない/設定方法がわからなかった項目の�
 
 - `hooks.apply.pre` → `hooks.read-source-state.pre` → `run_before_` script の順に呼ばれる
   - `hooks.read-source-state.pre` は chezmoi コマンド (apply, diff, data 等) の実行時に毎回呼ばれる
+- `BW_SESSION` が環境変数に設定してあっても、chezmoi コマンドを実行しているターミナルウィンドウで `bw login` しないと毎回マスターパスワードを聞かれる
+  - `bw login` → `export BW_SESSION="xxx"` → `chezmoi diff/apply` → マスターパスワードの入力なしで OK
+  - `chezmoi diff/apply` → シェルスクリプト内で `bw login` → `export BW_SESSION="xxx"` しても毎回マスターパスワードの入力が求められる
+    - chezmoi コマンドを実行しているターミナルウィンドウで `bw login` しない限り、何度 `bw unlock` してもマスターパスワードの入力が必要
