@@ -13,6 +13,7 @@ packages:
       - "jq"
       - "mise"
       - "peco"
+      - ripgrep
       - "ruby-build"
       - "yq"
     casks:
@@ -24,6 +25,32 @@ packages:
     mise:
       - "node@lts"
       - "ruby"
+  linux:
+    taps:
+      - "homebrew/bundle"
+    brews:
+      - "bitwarden-cli"
+      - "chezmoi"
+      - "docker"
+      - "docker-compose"
+      - "git"
+      - "ghq"
+      - "jq"
+      - "mise"
+      - "peco"
+      - "ripgrep"
+      - "ruby-build"
+      - "yq"
+    mise:
+      - "node@lts"
+      - "ruby"
+  windows:
+    winget:
+      - "Google.Chrome"
+      - "Google.JapaneseIME"
+      - "Microsoft.PowerToys"
+      - "Microsoft.VisualStudioCode"
+      - "Microsoft.WindowsTerminal"
   vs_code_extensions:
     - "christian-kohler.path-intellisense"
     - "dbaeumer.vscode-eslint"
