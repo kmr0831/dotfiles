@@ -2,6 +2,6 @@
 
 set -eufo pipefail
 
-{{ range .packages.darwin.mise -}}
+{{ range .packages.linux.mise -}}
   mise use -g {{.}}
 {{ end }}
