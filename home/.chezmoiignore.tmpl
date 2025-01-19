@@ -3,4 +3,8 @@
 Library
 {{ end }}
 
+{{ if ne .chezmoi.os "linux" }}
+.chezmoiscripts/linux/**
+{{ end }}
+
 ../README.md
