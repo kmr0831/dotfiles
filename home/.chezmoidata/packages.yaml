@@ -41,6 +41,7 @@ packages:
       - "ripgrep"
       - "ruby-build"
       - "yq"
+      - "zsh"
     mise:
       - "node@lts"
       - "ruby"
