@@ -17,12 +17,13 @@ install_bitwarden() {
   brew install bitwarden-cli
 }
 
-bw_unlock() {
-  if ! bw login --check > /dev/null; then
-    bw login "${BITWARDEN_EMAIL:-}"
-  elif [ -z "${BW_SESSION:-}" ]; then
-    bw unlock
-  fi
+login_bitwarden() {
+  bw login --check > /dev/null || bw login "${BITWARDEN_EMAIL:-}"
+  # if ! bw login --check > /dev/null; then
+  #   bw login "${BITWARDEN_EMAIL:-}"
+  # elif [ -z "${BW_SESSION:-}" ]; then
+  #   bw unlock
+  # fi
 }
 
 install_homebrew() {
@@ -57,10 +58,10 @@ main() {
   fi
 
   if has_bw; then
-    bw_unlock
+    login_bitwarden
   else
     install_bitwarden
-    bw_unlock
+    login_bitwarden
   fi
 }
 
