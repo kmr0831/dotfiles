@@ -8,7 +8,9 @@ eval "$(mise activate zsh)"
 {{- if eq .chezmoi.os "darwin" }}
 eval "$(/opt/homebrew/bin/brew shellenv)"
 {{- else if eq .chezmoi.os "linux" }}
+{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{-   end }}
 {{- end }}
 
 # 同時に起動した zsh の間でヒストリを共有する

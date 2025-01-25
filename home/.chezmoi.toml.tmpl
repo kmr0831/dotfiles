@@ -2,4 +2,12 @@
   command = "code"
   args = ["--wait"]
 [hooks.read-source-state.pre]
+{{- if eq .chezmoi.os "darwin" }}
   command = "{{ .chezmoi.workingTree }}/.pre-source-state.sh"
+{{- else if eq .chezmoi.os "linux" }}
+{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+  command = "{{ .chezmoi.workingTree }}/.pre-source-state.sh"
+{{-   end }}
+{{- else if eq .chezmoi.os "windows" }}
+  command = "{{ .chezmoi.workingTree }}/.pre-source-state.ps1"
+{{- end }}
