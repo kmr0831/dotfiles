@@ -31,8 +31,6 @@ packages:
     brews:
       - "bitwarden-cli"
       - "chezmoi"
-      - "docker"
-      - "docker-compose"
       - "git"
       - "ghq"
       - "jq"
