@@ -1,6 +1,5 @@
 Include /Users/gin/.colima/ssh_config
+Include config.d/*
 
 Host *
   UseKeychain yes
-
-Include */config
