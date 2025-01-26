@@ -22,7 +22,4 @@ tap {{ . | quote }}
 {{ range .packages.linux.brews -}}
 brew {{ . | quote }}
 {{ end -}}
-{{ range .packages.linux.casks -}}
-cask {{ . | quote }}
-{{ end -}}
 EOF
