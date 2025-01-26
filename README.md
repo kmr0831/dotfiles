@@ -1,6 +1,29 @@
-# 移行前
+# dotfiles
 
-### パッケージ類を最新にする
+[chezmoi](https://www.chezmoi.io/) で管理されているドットファイルです
+
+## Setup
+
+[Bitwarden](https://bitwarden.com/) を使って秘密鍵を管理しています。<br>
+オプションとして、Bitwarden CLI でログインする際のメールアドレスを環境変数に設定しておくことができます。
+
+| key             | value               |
+| --------------- | ------------------- |
+| BITWARDEN_EMAIL | bitwarden email     |
+
+### Linux / macOS / WSL
+
+```
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --purge-binary --apply kmr0831
+```
+
+### Windows (PowerShell)
+
+```
+iex "&{$(irm 'https://get.chezmoi.io/ps1')} init --purge-binary --apply kmr0831"
+```
+
+### Daily operations
 
 <details>
 
@@ -37,27 +60,11 @@ index 35cad64a7b8de69a95dffe4c66ac53e85a51217c..2488f4f4632585f05963c14cbf4a7136
 
 </details>
 
-# 以降後
+## Other Settings
 
-### 1. 初期セットアップ
+### macOS
 
-```
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --purge-binary --apply kmr0831
-```
-
-オプション (chezmoi インストールスクリプトを実行する前に環境変数に設定)
-
-| key             | value               |
-| --------------- | ------------------- |
-| BITWARDEN_EMAIL | bitwarden email     |
-
-終了したら bitwarden のログアウトを忘れずに
-
-```
-bw logout
-```
-
-### 2. google-japanese-ime の設定
+#### 1. google-japanese-ime の設定
 
 - Mac を再起動 (再起動しないと設定できない)
 - 「環境設定」→「キーボード」→「入力ソース」を開く
@@ -67,11 +74,11 @@ bw logout
 - (必要であれば) 辞書のインポート・エクスポート
   - PC で辞書の編集 → 辞書のエクスポート (.txt になる) → .zip に圧縮して Google Drive に保存 → スマホで Google Drive からインポート
 
-### 3. Raycast の設定
+#### 2. Raycast の設定
 
 - Raycast の設定ファイルをインポートする。(設定ファイルを自動で読み込んでくれないため、手動でインポート作業が必要)
 
-### 4. Mac 本体の設定
+#### 3. Mac 本体の設定
 
 defaults で、設定できない/設定方法がわからなかった項目のカスタマイズを行う
 
@@ -82,6 +89,8 @@ defaults で、設定できない/設定方法がわからなかった項目の�
 3. メニューバー
     - 「Spotlight」を OFF
 4. ディスプレイの「輝度を自動調節」をオフにする
+
+## Notes
 
 ### chezmoi メモ
 
