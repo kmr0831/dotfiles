@@ -45,11 +45,13 @@ packages:
       - "ruby"
   windows:
     winget:
+      - "Git.Git"
       - "Google.Chrome"
       - "Google.JapaneseIME"
       - "Microsoft.PowerToys"
       - "Microsoft.VisualStudioCode"
       - "Microsoft.WindowsTerminal"
+      - "twpayne.chezmoi"
   vs_code_extensions:
     - "christian-kohler.path-intellisense"
     - "dbaeumer.vscode-eslint"
