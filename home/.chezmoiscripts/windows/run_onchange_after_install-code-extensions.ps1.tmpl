@@ -1,0 +1,8 @@
+if (-not (Get-Command code -errorAction SilentlyContinue)) {
+  Write-Host "code is not installed"
+  exit 1
+}
+
+{{ range .packages.vs_code_extensions -}}
+  code --force --install-extension {{.}}
+{{ end }}

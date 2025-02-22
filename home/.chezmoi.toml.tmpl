@@ -9,5 +9,6 @@
   command = "{{ .chezmoi.workingTree }}/.pre-source-state.sh"
 {{-   end }}
 {{- else if eq .chezmoi.os "windows" }}
-  command = "{{ .chezmoi.workingTree }}/.pre-source-state.ps1"
+  command = "powershell"
+  args = ["-NoLogo", "-NoProfile", "-File", "{{ .chezmoi.workingTree }}/.pre-source-state.ps1"]
 {{- end }}

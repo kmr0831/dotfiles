@@ -3,17 +3,13 @@
 Library
 {{ end }}
 
-{{ if eq .chezmoi.os "linux" }}
-{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{ if ne .chezmoi.os "linux" }}
 .chezmoiscripts/linux/**
-{{   end }}
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}
 .chezmoiscripts/windows/**
 {{ else }}
-.config/**
-.ssh/**
 .zshenv
 .zshrc
 {{ end }}

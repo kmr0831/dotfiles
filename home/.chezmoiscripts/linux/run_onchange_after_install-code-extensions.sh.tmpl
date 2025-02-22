@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -eufo pipefail
+
+if ! command -v code &> /dev/null; then
+  echo "code is not installed" >&2
+  exit 1
+fi
+
+{{ range .packages.vs_code_extensions -}}
+  code --force --install-extension {{.}}
+{{ end }}

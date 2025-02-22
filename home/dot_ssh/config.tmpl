@@ -1,5 +1,7 @@
 Include /Users/gin/.colima/ssh_config
 Include config.d/*
 
+{{- if ne .chezmoi.os "windows" }}
 Host *
   UseKeychain yes
+{{- end }}

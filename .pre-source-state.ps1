@@ -9,17 +9,7 @@ function Login-Bitwarden {
     } else {
       bw.exe login
     }
-    # bw.exe login ($env:BITWARDEN_EMAIL ?? "") --> PowerShell 7 以降で使える
   }
-  # if (-not (bw.exe login --check > $null)) {
-  #   if ($env:BITWARDEN_EMAIL) {
-  #     bw.exe login $env:BITWARDEN_EMAIL
-  #   } else {
-  #     bw.exe login
-  #   }
-  # } elseif (-not $env:BW_SESSION) {
-  #   bw.exe unlock
-  # }
 }
 
 function Install-Bitwarden {
