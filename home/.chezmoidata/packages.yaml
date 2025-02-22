@@ -48,6 +48,7 @@ packages:
       - "Git.Git"
       - "Google.Chrome"
       - "Google.JapaneseIME"
+      - "Microsoft.PowerShell"
       - "Microsoft.PowerToys"
       - "Microsoft.VisualStudioCode"
       - "Microsoft.WindowsTerminal"

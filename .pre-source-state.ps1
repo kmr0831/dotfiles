@@ -14,7 +14,7 @@ function Login-Bitwarden {
 
 function Install-Bitwarden {
   Write-Host "bw is not installed. Installing Bitwarden CLI"
-  winget install -e --id Bitwarden.CLI
+  winget install -e --source winget --accept-source-agreements --accept-package-agreements --id Bitwarden.CLI
 }
 
 function Main () {
