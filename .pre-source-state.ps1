@@ -4,11 +4,7 @@ function Has-bw {
 
 function Login-Bitwarden {
   if (-not (bw.exe login --check > $null)) {
-    if ($env:BITWARDEN_EMAIL) {
-      bw.exe login $env:BITWARDEN_EMAIL
-    } else {
-      bw.exe login
-    }
+    bw.exe login ($env:BITWARDEN_EMAIL ?? "")
   }
 }
 
