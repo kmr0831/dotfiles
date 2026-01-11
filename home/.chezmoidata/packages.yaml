@@ -26,20 +26,6 @@ packages:
       - "node@lts"
       - "ruby"
   linux:
-    taps:
-      - "homebrew/bundle"
-    brews:
-      - "bitwarden-cli"
-      - "chezmoi"
-      - "git"
-      - "ghq"
-      - "jq"
-      - "mise"
-      - "peco"
-      - "ripgrep"
-      - "ruby-build"
-      - "yq"
-      - "zsh"
     mise:
       - "node@lts"
       - "ruby"
