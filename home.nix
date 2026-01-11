@@ -34,6 +34,14 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    pkgs.bitwarden-cli
+    pkgs.chezmoi
+    pkgs.ghq
+    pkgs.git
+    pkgs.jq
+    pkgs.peco
+    pkgs.ripgrep
+    pkgs.zsh
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
