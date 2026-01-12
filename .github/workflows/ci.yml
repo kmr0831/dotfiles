@@ -7,6 +7,7 @@ on:
   workflow_dispatch:
 jobs:
   nix:
+    runs-on: ubuntu-latest
     name: Nix & chezmoi
     permissions:
       contents: read
