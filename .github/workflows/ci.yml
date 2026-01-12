@@ -15,6 +15,9 @@ jobs:
       - name: checkout
         uses: actions/checkout@v6
 
+      - name: Install Nix
+        uses: DeterminateSystems/determinate-nix-action@v3
+
       - name: Chezmoi apply
         run: |
           # bitwarden と連携しているファイルは CI では除外する
