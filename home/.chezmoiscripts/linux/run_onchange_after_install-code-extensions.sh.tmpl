@@ -2,6 +2,11 @@
 
 set -eufo pipefail
 
+if [ -n "${CI:-}" ]; then
+  echo "Skip install vscode extensions in CI"
+  exit 0
+fi
+
 if ! command -v code &> /dev/null; then
   echo "code is not installed" >&2
   exit 1
