@@ -1,0 +1,23 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  nix:
+    name: Nix & chezmoi
+    permissions:
+      contents: read
+    steps:
+      - name: checkout
+        uses: actions/checkout@v6
+
+      - name: Setup chezmoi
+        run: |
+          sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /usr/local/bin
+          echo ".ssh/*" >> home/.chezmoiignore.tmpl
+
+      - name: Chezmoi apply
+        run: chezmoi apply --init
