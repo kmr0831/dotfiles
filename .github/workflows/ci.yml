@@ -15,10 +15,8 @@ jobs:
       - name: checkout
         uses: actions/checkout@v6
 
-      - name: Setup chezmoi
-        run: |
-          sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /usr/local/bin
-          echo ".ssh/*" >> home/.chezmoiignore.tmpl
-
       - name: Chezmoi apply
-        run: chezmoi apply --init
+        run: |
+          # bitwarden と連携しているファイルは CI では除外する
+          echo ".ssh/*" >> home/.chezmoiignore.tmpl
+          sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply -S .
