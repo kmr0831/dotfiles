@@ -59,8 +59,8 @@
     # '';
     ".config/git/config".source = dotfiles/git/config;
     ".config/git/ignore".source = dotfiles/git/ignore;
-    ".config/Code/User/settings.json" = dotfiles/vscode/settings.json;
-    ".config/extensions.json" = dotfiles/vscode/extensions.json;
+    ".config/Code/User/settings.json" = builtins.fromJSON (builtins.readFile "dotfiles/vscode/settings.json");
+    ".config/extensions.json" = builtins.fromJSON (builtins.readFile "dotfiles/vscode/extensions.json");
     ".zshenv".source = dotfiles/zsh/.zshenv;
     ".zshrc".source = dotfiles/zsh/.zshrc;
   };
