@@ -26,6 +26,5 @@
   "debug.inlineValues": "on",
   "debug.openDebug": "openOnSessionStart",
   "diffEditor.renderSideBySide": false,
-  // プロジェクトルートに prettier の設定があるときだけフォーマットする
   "prettier.requireConfig": true
 }
