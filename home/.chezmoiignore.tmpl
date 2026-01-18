@@ -4,11 +4,14 @@ Library
 {{ end }}
 
 {{ if ne .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 .chezmoiscripts/linux/**
+{{   end }}
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}
 .chezmoiscripts/windows/**
+AppData
 {{ else }}
 .zshenv
 .zshrc
