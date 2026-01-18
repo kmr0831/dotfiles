@@ -1,6 +1,6 @@
 # dotfiles
 
-[chezmoi](https://www.chezmoi.io/) で管理されているドットファイルです
+[chezmoi](https://www.chezmoi.io/) と [Nix](https://nixos.org/) で管理されている dotfiles です
 
 ## Setup
 
@@ -13,17 +13,39 @@
 
 ### Linux / macOS / WSL
 
+```bash
+export BITWARDEN_EMAIL="example@example.com"
 ```
+
+### Windows
+
+```ps1
+$env:BITWARDEN_EMAIL = "example@example.com"
+```
+
+## Linux / macOS / WSL
+
+```bash
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --purge-binary --apply kmr0831
+nix run home-manager/master -- switch --flake .#gin
 ```
 
-### Windows (PowerShell)
-
+```bash
+echo $(which zsh) | sudo tee -a /etc/shells
+chsh -s $(which zsh)
 ```
+
+```bash
+git remote set-url origin git@github.com:kmr0831/dotfiles.git
+```
+
+## Windows (PowerShell)
+
+```ps1
 iex "&{$(irm 'https://get.chezmoi.io/ps1')} init --purge-binary --apply kmr0831"
 ```
 
-### Daily operations
+## Daily operations
 
 <details>
 
