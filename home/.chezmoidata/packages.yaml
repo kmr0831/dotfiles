@@ -25,10 +25,6 @@ packages:
     mise:
       - "node@lts"
       - "ruby"
-  linux:
-    mise:
-      - "node@lts"
-      - "ruby"
   windows:
     winget:
       - "Git.Git"

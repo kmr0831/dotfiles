@@ -34,16 +34,6 @@ install_homebrew() {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     eval "$(/opt/homebrew/bin/brew shellenv)"
     ;;
-  Linux*)
-    sudo apt-get update && \
-      sudo apt-get upgrade && \
-      sudo apt-get install -y build-essential procps curl file git && \
-      sudo apt-get autoremove && \
-      sudo apt-get autoclean
-
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    ;;
   *)
     echo "unsupported OS"
     exit 1
