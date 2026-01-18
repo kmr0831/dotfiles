@@ -23,7 +23,7 @@
   "workbench.editor.wrapTabs": true,
   "workbench.view.alwaysShowHeaderActions": true,
   "workbench.tree.renderIndentGuides": "always",
-  "debug.inlineValues": "on",
+  "debug.inlineValues": true,
   "debug.openDebug": "openOnSessionStart",
   "diffEditor.renderSideBySide": false,
   "prettier.requireConfig": true
