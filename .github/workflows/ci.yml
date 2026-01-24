@@ -7,8 +7,11 @@ on:
   workflow_dispatch:
 jobs:
   nix:
-    runs-on: ubuntu-latest
     name: Nix & chezmoi
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     permissions:
       id-token: write
       contents: read
@@ -27,4 +30,10 @@ jobs:
       - name: Check Nixpkgs
         uses: DeterminateSystems/flake-checker-action@main
       - name: Check the flake
-        run: nix flake check && nix run home-manager/master -- build --flake .#gin
+        run: |
+          nix flake check
+          if [ "${{ runner.os }}" == "Linux" ]; then
+            nix run home-manager/master -- build --flake .#gin@wsl
+          elif [ "${{ runner.os }}" == "macOS" ]; then
+            nix run home-manager/master -- build --flake .#gin@mac
+          fi

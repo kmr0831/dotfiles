@@ -2,8 +2,8 @@
   description = "Home Manager configuration of gin";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -11,21 +11,39 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      homeConfigurations."gin" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+    inputs@{
+      nixpkgs,
+      flake-parts,
+      home-manager,
+      ...
+    }:
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [
+        "aarch64-darwin"
+        "x86_64-linux"
+      ];
 
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
+      imports = [
+        inputs.home-manager.flakeModules.home-manager
+      ];
+
+      flake = {
+        homeConfigurations = {
+          "gin@wsl" = home-manager.lib.homeManagerConfiguration {
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+            modules = [
+              ./home-manager/wsl.nix
+            ];
+          };
+
+          "gin@mac" = home-manager.lib.homeManagerConfiguration {
+            pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+            modules = [
+              ./home-manager/mac.nix
+            ];
+          };
+        };
       };
     };
 }

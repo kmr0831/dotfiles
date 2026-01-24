@@ -1,12 +1,9 @@
 {{ if ne .chezmoi.os "darwin" }}
 .chezmoiscripts/darwin/**
-Library
 {{ end }}
 
 {{ if ne .chezmoi.os "linux" }}
-{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 .chezmoiscripts/linux/**
-{{   end }}
 {{ else }}
 .config/raycast
 {{ end }}

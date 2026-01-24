@@ -1,30 +1,11 @@
 packages:
   darwin:
-    taps:
-      - "homebrew/bundle"
-    brews:
-      - "bitwarden-cli"
-      - "chezmoi"
-      - "colima"
-      - "docker"
-      - "docker-compose"
-      - "git"
-      - "ghq"
-      - "jq"
-      - "mise"
-      - "peco"
-      - ripgrep
-      - "ruby-build"
-      - "yq"
     casks:
       - "google-chrome"
       - "google-japanese-ime"
       - "raycast"
       - "visual-studio-code"
       - "warp"
-    mise:
-      - "node@lts"
-      - "ruby"
   windows:
     winget:
       - "Git.Git"
@@ -40,9 +21,5 @@ packages:
     - "dbaeumer.vscode-eslint"
     - "eamodio.gitlens"
     - "esbenp.prettier-vscode"
-    - "ms-azuretools.vscode-docker"
-    - "ms-vscode-remote.remote-containers"
     - "ms-vscode-remote.remote-wsl"
-    - "shopify.ruby-lsp"
     - "usernamehw.errorlens"
-    - "vue.volar"
