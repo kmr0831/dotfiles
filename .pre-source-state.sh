@@ -7,17 +7,18 @@ has_bw() {
 }
 
 login_bitwarden() {
+  if [ -n "${BW_SESSION:-}" ]; then
+    exit 0
+  fi
+
   bw login --check > /dev/null || bw login "${BITWARDEN_EMAIL:-}"
 }
 
 main() {
-  if [ -n "${BW_SESSION:-}" ]; then
-    echo "The BW_SESSION environment variable is already set."
-    exit 0
-  fi
-
   if has_bw; then
     login_bitwarden
+  else
+    echo "bw is not installed. Installing Bitwarden CLI."
   fi
 }
 
