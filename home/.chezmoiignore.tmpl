@@ -4,9 +4,7 @@ Library
 {{ end }}
 
 {{ if ne .chezmoi.os "linux" }}
-{{   if ne (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 .chezmoiscripts/linux/**
-{{   end }}
 {{ else }}
 .config/raycast
 {{ end }}
