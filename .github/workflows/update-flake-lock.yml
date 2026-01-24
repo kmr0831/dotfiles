@@ -2,7 +2,7 @@ name: Update flake.lock
 on:
   schedule:
      # 毎週日曜日朝 7:00 時
-    - cron: "0 22 * * 0"
+    - cron: "0 22 * * 6"
   workflow_dispatch:
 permissions:
   contents: write
