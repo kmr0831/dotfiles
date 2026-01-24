@@ -30,4 +30,10 @@ jobs:
       - name: Check Nixpkgs
         uses: DeterminateSystems/flake-checker-action@main
       - name: Check the flake
-        run: nix flake check && nix run home-manager/master -- build --flake .#gin
+        run: |
+          nix flake check
+          if [ "${{ runner.os }}" == "Linux" ]; then
+            nix run home-manager/master -- build --flake .#gin@wsl
+          elif [ "${{ runner.os }}" == "macOS" ]; then
+            nix run home-manager/master -- build --flake .#gin@mac
+          fi
