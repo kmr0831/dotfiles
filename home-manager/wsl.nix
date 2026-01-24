@@ -19,7 +19,7 @@
   home.file = {
     ".config/git/config".source = ../dotfiles/git/config;
     ".config/git/ignore".source = ../dotfiles/git/ignore;
-    ".config/Code/User/settings.json".source = ../dotfiles/vscode/settings.json;
+    "Library/Application Support/Code/User/settings.json".source = ../dotfiles/vscode/settings.json;
     ".config/extensions.json".source = ../dotfiles/vscode/extensions.json;
     ".zshenv".source = ../dotfiles/zsh/.zshenv;
     ".zshrc".source = ../dotfiles/zsh/.zshrc;
