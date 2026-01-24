@@ -23,11 +23,27 @@ export BITWARDEN_EMAIL="example@example.com"
 $env:BITWARDEN_EMAIL = "example@example.com"
 ```
 
-## Linux / macOS / WSL
+## Linux / WSL
 
 ```bash
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --purge-binary --apply kmr0831
-nix run home-manager/master -- switch --flake .#gin
+nix run home-manager/master -- switch --flake .#gin@wsl
+```
+
+```bash
+echo $(which zsh) | sudo tee -a /etc/shells
+chsh -s $(which zsh)
+```
+
+```bash
+git remote set-url origin git@github.com:kmr0831/dotfiles.git
+```
+
+## macOS
+
+```bash
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --purge-binary --apply kmr0831
+nix run home-manager/master -- switch --flake .#gin@mac
 ```
 
 ```bash
